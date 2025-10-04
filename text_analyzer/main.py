@@ -1,4 +1,5 @@
-f = open("file.txt").readlines()
+f_name = input("Путь до файа: ")
+f = open(f_name).readlines()
 
 print(f"Кол-во строк: {len(f)}")
 print(f"Кол-во символов: {sum([len(i) for i in f])}")
