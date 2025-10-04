@@ -1,4 +1,4 @@
-f = open("/home/egor/Учёба/Теория и практика ЯП/Lesson 4 - 5/file.txt").readlines()
+f = open("file.txt").readlines()
 
 print(f"Кол-во строк: {len(f)}")
 print(f"Кол-во символов: {sum([len(i) for i in f])}")
