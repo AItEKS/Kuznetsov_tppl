@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89E6CABA-496F-4B95-ACC7-033A54E63C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brainfuck.App", "src\Brainfuck.App\Brainfuck.App.csproj", "{B804A5BC-8A56-46AB-9EC4-88A520067689}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B252D0EF-07D1-4E91-A152-D1AE2600BBC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brainfuck.Tests", "tests\Brainfuck.Tests\Brainfuck.Tests.csproj", "{8D95DB58-D6FC-42FF-BE23-938105047B62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B804A5BC-8A56-46AB-9EC4-88A520067689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B804A5BC-8A56-46AB-9EC4-88A520067689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B804A5BC-8A56-46AB-9EC4-88A520067689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B804A5BC-8A56-46AB-9EC4-88A520067689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D95DB58-D6FC-42FF-BE23-938105047B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D95DB58-D6FC-42FF-BE23-938105047B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D95DB58-D6FC-42FF-BE23-938105047B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D95DB58-D6FC-42FF-BE23-938105047B62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B804A5BC-8A56-46AB-9EC4-88A520067689} = {89E6CABA-496F-4B95-ACC7-033A54E63C46}
+		{8D95DB58-D6FC-42FF-BE23-938105047B62} = {B252D0EF-07D1-4E91-A152-D1AE2600BBC4}
+	EndGlobalSection
+EndGlobal
