@@ -213,11 +213,12 @@ var assemblies = [
   {
     "name": "Brainfuck.App",
     "classes": [
-      { "name": "Brainfuck.Core.CowInterpreter", "rp": "Brainfuck.App_CowInterpreter.html", "cl": 0, "ucl": 77, "cal": 77, "tl": 111, "cb": 0, "tb": 32, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Brainfuck.Core.MachineState", "rp": "Brainfuck.App_MachineState.html", "cl": 0, "ucl": 4, "cal": 4, "tl": 12, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Brainfuck.IO.ConsoleIOHandler", "rp": "Brainfuck.App_ConsoleIOHandler.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Brainfuck.Core.CowInterpreter", "rp": "Brainfuck.App_CowInterpreter.html", "cl": 71, "ucl": 6, "cal": 77, "tl": 111, "cb": 28, "tb": 32, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Brainfuck.Core.MachineState", "rp": "Brainfuck.App_MachineState.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 12, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Brainfuck.IO.ConsoleIOHandler", "rp": "Brainfuck.App_ConsoleIOHandler.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "Brainfuck.Parsing.CowParser", "rp": "Brainfuck.App_CowParser.html", "cl": 26, "ucl": 0, "cal": 26, "tl": 35, "cb": 4, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Program", "rp": "Brainfuck.App_Program.html", "cl": 0, "ucl": 1, "cal": 1, "tl": 2, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Brainfuck.Program", "rp": "Brainfuck.App_Program.html", "cl": 0, "ucl": 5, "cal": 5, "tl": 68, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Brainfuck.ProgramRunner", "rp": "Brainfuck.App_ProgramRunner.html", "cl": 0, "ucl": 32, "cal": 32, "tl": 68, "cb": 0, "tb": 10, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
@@ -232,16 +233,16 @@ var riskHotspotMetrics = [
 
 var riskHotspots = [
   {
-    "assembly": "Brainfuck.App", "class": "Brainfuck.Core.CowInterpreter", "reportPath": "Brainfuck.App_CowInterpreter.html", "methodName": "ExecuteCommand(Brainfuck.Parsing.CowCommand,Brainfuck.Core.MachineState,System.Collections.Generic.List`1<Brainfuck.Parsing.CowCommand>)", "methodShortName": "ExecuteCommand(...)", "fileIndex": 0, "line": 29,
+    "assembly": "Brainfuck.App", "class": "Brainfuck.ProgramRunner", "reportPath": "Brainfuck.App_ProgramRunner.html", "methodName": ".ctor(System.IO.TextWriter,System.Func`2<System.String,System.Boolean>,System.Func`2<System.String,System.String>)", "methodShortName": ".ctor(...)", "fileIndex": 0, "line": 24,
     "metrics": [
-      { "value": 506, "exceeded": true },
-      { "value": 22, "exceeded": true },
+      { "value": 42, "exceeded": true },
+      { "value": 6, "exceeded": false },
     ]},
   {
-    "assembly": "Brainfuck.App", "class": "Brainfuck.Core.CowInterpreter", "reportPath": "Brainfuck.App_CowInterpreter.html", "methodName": "BuildJumpMap(System.Collections.Generic.List`1<Brainfuck.Parsing.CowCommand>)", "methodShortName": "BuildJumpMap(...)", "fileIndex": 0, "line": 90,
+    "assembly": "Brainfuck.App", "class": "Brainfuck.Core.CowInterpreter", "reportPath": "Brainfuck.App_CowInterpreter.html", "methodName": "ExecuteCommand(Brainfuck.Parsing.CowCommand,Brainfuck.Core.MachineState,System.Collections.Generic.List`1<Brainfuck.Parsing.CowCommand>)", "methodShortName": "ExecuteCommand(...)", "fileIndex": 0, "line": 29,
     "metrics": [
-      { "value": 72, "exceeded": true },
-      { "value": 8, "exceeded": false },
+      { "value": 23, "exceeded": false },
+      { "value": 22, "exceeded": true },
     ]},
 ];
 
