@@ -1,5 +1,4 @@
-﻿// Program.cs
-using Brainfuck.Core;
+﻿using Brainfuck.Core;
 using Brainfuck.IO;
 using Brainfuck.Parsing;
 
