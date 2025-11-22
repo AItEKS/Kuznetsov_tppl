@@ -6,6 +6,7 @@ using Brainfuck.Parsing;
 
 using Moq;
 
+[Collection("SystemTests")]
 public class CowInterpreterTests
 {
     private readonly Mock<IInputOutputHandler> _mockIO;

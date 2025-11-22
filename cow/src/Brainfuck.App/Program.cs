@@ -1,67 +1,43 @@
-﻿using Brainfuck.Core;
-using Brainfuck.IO;
+﻿namespace Brainfuck;
+
 using Brainfuck.Parsing;
+using Brainfuck.IO;
+using Brainfuck.Core;
 
-namespace Brainfuck;
+using System;
+using System.IO;
 
-class Program
+
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        var runner = new ProgramRunner();
-        int exitCode = runner.Run(args);
-        Environment.Exit(exitCode);
-    }
-}
+        Console.WriteLine("Moooo COW Interpreter ooooM\n");
 
-public class ProgramRunner
-{
-    private readonly TextWriter _output;
-    private readonly Func<string, bool> _fileExists;
-    private readonly Func<string, string> _readFile;
+        string fileName = args.Length > 0 ? args[0] : "";
 
-    public ProgramRunner(
-        TextWriter? output = null,
-        Func<string, bool>? fileExists = null,
-        Func<string, string>? readFile = null)
-    {
-        _output = output ?? Console.Out;
-        _fileExists = fileExists ?? File.Exists;
-        _readFile = readFile ?? File.ReadAllText;
-    }
-
-    public int Run(string[] args)
-    {
-        _output.WriteLine("Moooo COW Interpreter ooooM\n");
-
-        string fileName = args.Length > 0 ? args[0] : "program.cow";
-
-        if (!_fileExists(fileName))
+        if (!File.Exists(fileName))
         {
-            _output.WriteLine($"Файл '{fileName}' не найден!");
-            _output.WriteLine("Использование: dotnet run [имя_файла.cow]");
-            return 1;
+            Console.WriteLine($"Файл '{fileName}' не найден!");
+            Console.WriteLine("Использование: dotnet run [имя_файла.cow]");
+            return;
         }
 
         try
         {
-            string code = _readFile(fileName);
+            string code = File.ReadAllText(fileName);
+            
             var parser = new CowParser();
             var commands = parser.Parse(code);
 
-            var ioHandler = new ConsoleIOHandler();
-            var interpreter = new CowInterpreter(ioHandler);
-
-            _output.WriteLine("РЕЗУЛЬТАТ:");
+            var interpreter = new CowInterpreter(new ConsoleIOHandler());
+            
+            Console.WriteLine("РЕЗУЛЬТАТ:");
             interpreter.Execute(commands);
-
-            return 0;
         }
         catch (Exception ex)
         {
-            _output.WriteLine($"\nОшибка: {ex.Message}");
-            _output.WriteLine(ex.StackTrace);
-            return 1;
+            Console.WriteLine($"\nОшибка: {ex.Message}");
         }
     }
 }
