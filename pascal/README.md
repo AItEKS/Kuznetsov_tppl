@@ -1,8 +1,8 @@
-# COW Interpreter
+# Интерпретатор Pascal
 
-Интерпретатор эзотерического языка программирования **COW** (диалект Brainfuck), написанный на C# (.NET).
+Интерпретатор подмножества языка программирования **Pascal**, написанный на C# (.NET).
 
-Проект реализует лексический анализ (парсинг) команд COW и их исполнение виртуальной машиной.
+Проект реализует лексический анализ (lexer), синтаксический анализ (parser), построение абстрактного синтаксического дерева (AST) и его последующее исполнение.
 
 ## Требования
 
@@ -19,7 +19,7 @@
 1.  **Клонирование репозитория:**
     ```bash
     git clone https://github.com/AItEKS/Kuznetsov_tppl.git
-    cd Kuznetsov_tppl/cow
+    cd Kuznetsov_tppl/pascal
     ```
 
 2.  **Восстановление зависимостей и сборка:**
@@ -30,26 +30,13 @@
 
 ## Использование
 
-Для запуска интерпретатора используйте команду `dotnet run`, передав путь к файлу с кодом `.cow` в качестве аргумента.
+Для запуска интерпретатора используйте команду `dotnet run` из корневой папки проекта.
 
-**Синтаксис:**
 ```bash
-dotnet run --project src/Brainfuck.App/Brainfuck.App.csproj [путь_к_файлу.cow]
+dotnet run
 ```
 
-**Пример:**
-Если у вас есть файл `hello.cow`:
-```bash
-dotnet run hello.cow
-```
-
-Если запустить без аргументов, программа выведет справку:
-```text
-Moooo COW Interpreter ooooM
-
-Файл '' не найден!
-Использование: dotnet run [имя_файла.cow]
-```
+На данный момент программа запускает встроенный пример кода и выводит в консоль результаты его выполнения: построенное AST-дерево и итоговое состояние таблицы символов (переменных).
 
 ## Тестирование и покрытие кода (Code Coverage)
 
@@ -57,10 +44,12 @@ Moooo COW Interpreter ooooM
 
 ### Запуск тестов с генерацией отчета
 
+![Coverage](cov.jpg)
+
 Для запуска всех тестов, сбора метрик покрытия кода и генерации HTML-отчета используйте следующую команду (для Linux/macOS):
 
 ```bash
-dotnet test --collect:"XPlat Code Coverage" && reportgenerator -reports:"./TestResults/*/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html && xdg-open coveragereport/index.html
+dotnet test --collect:"XPlat Code Coverage" && reportgenerator -reports:"**/*/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html && xdg-open coveragereport/index.html
 ```
 
 **Что делает эта команда:**
@@ -69,18 +58,21 @@ dotnet test --collect:"XPlat Code Coverage" && reportgenerator -reports:"./TestR
 3.  `xdg-open ...` — автоматически открывает отчет в браузере по умолчанию (на Linux).
 
 > **Примечание для Windows:**
-> Вместо `xdg-open` используйте `start` или просто откройте файл `coveragereport/index.html` вручную.
+> Вместо `xdg-open coveragereport/index.html` используйте `start coveragereport/index.html` или просто откройте файл `coveragereport/index.html` вручную в проводнике.
 
 ### Структура проекта
 
-*   **Brainfuck.App** — Основное консольное приложение.
-    *   `Core` — Логика интерпретатора (`CowInterpreter`, `MachineState`).
-    *   `Parsing` — Парсер кода (`CowParser`).
-    *   `IO` — Обработка ввода-вывода (`ConsoleIOHandler`).
-*   **Brainfuck.Tests** — Проект с тестами.
+*   **Pascal** (название вашего основного проекта) — Основное консольное приложение и логика интерпретатора.
+    *   `Token` — Определение токенов.
+    *   `Lexer` — Лексический анализатор, преобразующий текст в токены.
+    *   `Ast` — Узлы абстрактного синтаксического дерева (AST).
+    *   `Parser` — Синтаксический анализатор, строящий AST из токенов.
+    *   `Interpreter` — Модуль, исполняющий AST.
+*   **Pascal.Tests** — Проект с модульными и интеграционными тестами.
 
 ## Используемые библиотеки
 
 *   [xUnit](https://xunit.net/) — Фреймворк для тестирования.
 *   [Moq](https://github.com/moq/moq4) — Библиотека для Mock-объектов.
 *   [coverlet.collector](https://github.com/coverlet-coverage/coverlet) — Сборщик данных о покрытии кода.
+*   [ReportGenerator](https://github.com/danielpalme/ReportGenerator) — Генератор отчетов о покрытии.
