@@ -34,7 +34,6 @@ public class BinOp : Node
 
     public override string ToString()
     {
-        Console.WriteLine($"BinOp{Op.Value}({Left}, {Right})");
         return $"BinOp{Op.Value}({Left}, {Right})";
     }
 }
