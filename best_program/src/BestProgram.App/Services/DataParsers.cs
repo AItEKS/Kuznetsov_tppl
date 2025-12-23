@@ -6,7 +6,7 @@ using BestProgram.Domain;
 
 public static class DataParser
 {
-    private static DateTime ParseTimestamp(ReadOnlySpan<byte> timeSlice)
+    public static DateTime ParseTimestamp(ReadOnlySpan<byte> timeSlice)
     {
         long microseconds = BinaryPrimitives.ReadInt64BigEndian(timeSlice);
         
